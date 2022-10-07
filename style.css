@@ -1,0 +1,115 @@
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+main {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+section {
+  grid-column: 6 / 12;
+  opacity: 0.8;
+  background-color: white;
+  color: black;
+  padding: 50px;
+  font-size: 20px;
+  margin-bottom: 200px;
+  font-size: 30px;
+}
+
+header {
+  grid-column: 6 / span 6;
+  opacity: 0.8;
+  background-color: white;
+  color: black;
+  height: 300px;
+  margin: 200px 0px;
+}
+
+header h1 {
+  font-size: 70px;
+  text-align: center;
+  margin-top: 80px;
+}
+
+header p {
+  text-align: center;
+  font-size: 30px;
+}
+
+blockquote {
+  grid-column: 2/12;
+  opacity: 0.8;
+  background-color: white;
+  color: black;
+  margin-bottom: 200px;
+}
+
+blockquote p {
+  text-align: center;
+  font-size: 30px;
+  padding: 20px;
+  margin: auto;
+}
+
+.child > a > img {
+  width: 100%;
+  height: 300px;
+  margin: 40px 0px;
+}
+
+.links {
+  text-align: center;
+}
+
+.link {
+  display: inline-block;
+  margin: 0px 40px;
+}
+
+.link > a {
+  color: black
+}
+
+.link > a > svg {
+  font-size: 50px;
+}
+
+canvas {
+  display: none;
+}
+
+main {
+  display: none;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  /* Light grey */
+  border-top: 16px solid black;
+  /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+  margin-top: 350px;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
