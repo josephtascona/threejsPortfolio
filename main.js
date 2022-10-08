@@ -2,6 +2,11 @@ import * as THREE from 'three';
 
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
+import spaceImage from './images/space.jpg';
+import sasukeImage from './images/sasuke.webp';
+import moonImage from './images/moon.jpeg';
+import normalImage from './images/normal.jpeg';
+
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -44,10 +49,10 @@ function addStar() {
 
 Array(200).fill().forEach(addStar);
 
-const spaceTexture = new THREE.TextureLoader().load('images/space.jpg');
+const spaceTexture = new THREE.TextureLoader().load(spaceImage);
 scene.background = spaceTexture;
 
-const sasukeTexture = new THREE.TextureLoader().load('images/sasuke.webp');
+const sasukeTexture = new THREE.TextureLoader().load(sasukeImage);
 
 const sasuke = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
@@ -56,8 +61,8 @@ const sasuke = new THREE.Mesh(
 
 scene.add(sasuke);
 
-const moonTexture = new THREE.TextureLoader().load('images/moon.jpeg');
-const normalTexture = new THREE.TextureLoader().load('images/normal.jpeg');
+const moonTexture = new THREE.TextureLoader().load(moonImage);
+const normalTexture = new THREE.TextureLoader().load(normalImage);
 
 const moon = new THREE.Mesh(
   new THREE.SphereGeometry(3,32,32),
