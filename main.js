@@ -36,18 +36,25 @@ const gridHelper = new THREE.GridHelper(200, 50);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
-function addStar() {
+let starArray = [];
+
+function createStar(amount) {
   const geometry = new THREE.SphereGeometry(0.25,24,24);
   const material = new THREE.MeshStandardMaterial( {color: 0xffffff});
-  const star = new THREE.Mesh(geometry, material);
-
-  const [x,y,z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
-
-  star.position.set(x,y,z);
-  scene.add(star);
+  for (let i = 0; i < amount; i++) {
+    const star = new THREE.Mesh(geometry, material);
+    const [y, z] = Array(2).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+    const x = THREE.MathUtils.randFloat(-175, 75);
+    star.position.set(x, y, z);
+    starArray.push(star);
+  }
 }
 
-Array(200).fill().forEach(addStar);
+createStar(400);
+
+for (let i = 0; i < starArray.length; i++) {
+  scene.add(starArray[i]);
+}
 
 const spaceTexture = new THREE.TextureLoader().load(spaceImage);
 scene.background = spaceTexture;
@@ -102,6 +109,10 @@ function animate() {
   moon.rotation.x += 0.002;
   moon.rotation.y += 0.001;
   moon.rotation.z += 0.002;
+
+  for (let i = 0; i < starArray.length; i++) {
+    starArray[i].translateX(0.01);
+  }
 
   controls.update();
 
