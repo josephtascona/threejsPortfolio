@@ -3,7 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 
 import spaceImage from './images/space.jpg';
-import sasukeImage from './images/sasuke.webp';
+import interstellarImage from './images/interstellar.png';
 import moonImage from './images/moon.jpeg';
 import normalImage from './images/normal.jpeg';
 
@@ -52,14 +52,14 @@ Array(200).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load(spaceImage);
 scene.background = spaceTexture;
 
-const sasukeTexture = new THREE.TextureLoader().load(sasukeImage);
+const interstellarTexture = new THREE.TextureLoader().load(interstellarImage);
 
-const sasuke = new THREE.Mesh(
+const interstellar = new THREE.Mesh(
   new THREE.BoxGeometry(3,3,3),
-  new THREE.MeshBasicMaterial({map: sasukeTexture})
+  new THREE.MeshBasicMaterial({map: interstellarTexture})
 );
 
-scene.add(sasuke);
+scene.add(interstellar);
 
 const moonTexture = new THREE.TextureLoader().load(moonImage);
 const normalTexture = new THREE.TextureLoader().load(normalImage);
@@ -83,8 +83,8 @@ function moveCamera() {
   moon.rotation.y += 0.075;
   moon.rotation.z += 0.05;
 
-  sasuke.rotation.y += 0.03;
-  sasuke.rotation.z += 0.03;
+  interstellar.rotation.y += 0.03;
+  interstellar.rotation.z += 0.03;
 
   camera.position.z = t*-0.01;
   camera.position.x = t*-0.0002;
@@ -99,6 +99,10 @@ function animate() {
   torus.rotation.y += 0.005;
   torus.rotation.z += 0.01;
 
+  moon.rotation.x += 0.002;
+  moon.rotation.y += 0.001;
+  moon.rotation.z += 0.002;
+
   controls.update();
 
   renderer.render(scene, camera);
@@ -110,6 +114,21 @@ function display() {
   document.querySelector('canvas').style.display = "grid";
   document.querySelector('main').style.display = "grid";
   document.querySelector('.loader').style.display = "none";
+}
+
+let playing = false;
+document.querySelector('#music').onclick = function() {
+  if (!playing) {
+    document.querySelector("#bg_music").play();
+    playing = true;
+    document.querySelector('.music').style.backgroundColor = "black";
+    document.querySelector('.music').style.color = "white";
+  } else {
+    document.querySelector("#bg_music").pause();
+    playing = false;
+    document.querySelector('.music').style.backgroundColor = "white";
+    document.querySelector('.music').style.color = "black";
+  }
 }
 
 setTimeout(display, 3000);
