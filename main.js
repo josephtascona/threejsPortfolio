@@ -142,4 +142,4 @@ document.querySelector('#music').onclick = function() {
   }
 }
 
-setTimeout(display, 4000);
+setTimeout(display, 3000);
