@@ -197,3 +197,9 @@ main {
     display: none;
   }
 }
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+  blockquote {
+    grid-column: 3/12;
+  }
+}
