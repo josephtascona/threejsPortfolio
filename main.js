@@ -122,7 +122,7 @@ function animate() {
 animate();
 
 function display() {
-  document.querySelector('canvas').style.display = "grid";
+  document.querySelector('canvas').style.display = "block";
   document.querySelector('main').style.display = "grid";
   document.querySelector('.loader').style.display = "none";
 }
@@ -142,4 +142,4 @@ document.querySelector('#music').onclick = function() {
   }
 }
 
-setTimeout(display, 3000);
+setTimeout(display, 4000);
