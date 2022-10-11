@@ -121,7 +121,7 @@ function animate() {
 
 animate();
 
-function display() {
+window.onload = function() {
   document.querySelector('canvas').style.display = "block";
   document.querySelector('main').style.display = "grid";
   document.querySelector('.loader').style.display = "none";
@@ -141,5 +141,3 @@ document.querySelector('#music').onclick = function() {
     document.querySelector('.music').style.color = "black";
   }
 }
-
-setTimeout(display, 3000);
